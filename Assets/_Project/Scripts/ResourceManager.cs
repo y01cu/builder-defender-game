@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
+    public event EventHandler OnResourceAmountChanged;
+
     private Dictionary<ResourceTypeSO, int> resourceAmountDictionary;
 
     public static ResourceManager Instance { get; set; }
@@ -33,6 +35,7 @@ public class ResourceManager : MonoBehaviour
             AddResource(resourceTypeList.list[0], 10);
             TestLogResourceAmountDictionary();
         }
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             ResourceTypeListSO resourceTypeList = Resources.Load<ResourceTypeListSO>(nameof(ResourceTypeListSO));
@@ -52,6 +55,14 @@ public class ResourceManager : MonoBehaviour
     public void AddResource(ResourceTypeSO resourceType, int amount)
     {
         resourceAmountDictionary[resourceType] += amount;
+
+        OnResourceAmountChanged?.Invoke(this, EventArgs.Empty);
+
         TestLogResourceAmountDictionary();
+    }
+
+    public int GetResourceAmount(ResourceTypeSO resourceType)
+    {
+        return resourceAmountDictionary[resourceType];
     }
 }
