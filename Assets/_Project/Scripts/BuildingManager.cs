@@ -1,28 +1,40 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class BuildingManager : MonoBehaviour
 {
-    [SerializeField] private BuildingTypeSO buildingType;
+    public static BuildingManager Instance { get; private set; }
+    [SerializeField] private BuildingTypeSO activeBuildingType;
     [SerializeField] private Camera mainCamera;
 
     private BuildingTypeListSO buildingTypeList;
 
     private void Awake()
     {
+        Instance = this;
         buildingTypeList = Resources.Load<BuildingTypeListSO>(nameof(BuildingTypeListSO));
-        buildingType = buildingTypeList.list[1];
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            Instantiate(buildingType.prefab, UtilsBase.GetMouseWorldPositionOnCamera(mainCamera), Quaternion.identity);
+            if (activeBuildingType != null)
+            {
+                Instantiate(activeBuildingType.prefab, UtilsBase.GetMouseWorldPositionOnCamera(mainCamera), Quaternion.identity);
+            }
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-        }
+    public void SetActiveBuildingType(BuildingTypeSO buildingType)
+    {
+        activeBuildingType = buildingType;
+    }
+
+    public BuildingTypeSO GetActiveBuildingType()
+    {
+        return activeBuildingType;
     }
 }

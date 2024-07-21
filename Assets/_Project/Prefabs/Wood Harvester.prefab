@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8609345941856347588}
-  - component: {fileID: -1170009580954656094}
-  - component: {fileID: 4796355817025369370}
+  - component: {fileID: 734876148830226559}
+  - component: {fileID: 2185979605820064417}
   m_Layer: 0
-  m_Name: Gold Harvester
+  m_Name: Wood Harvester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7160507854196736030}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1170009580954656094
+--- !u!114 &734876148830226559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db31c0f2d0065224498137e84812f80e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4796355817025369370
+--- !u!114 &2185979605820064417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ceaf5c6548cf74e86cc2286cd711a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingType: {fileID: 11400000, guid: 9b2cf3770121f4248862bea73c2cae9c, type: 2}
+  buildingType: {fileID: 11400000, guid: 9335cc7f805b40b48adcd979c9bb6961, type: 2}
 --- !u!1 &9208269339496726473
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 1071197795
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
