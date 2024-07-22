@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8609345941856347588}
   - component: {fileID: 734876148830226559}
-  - component: {fileID: 2185979605820064417}
   m_Layer: 0
   m_Name: Stone Harvester
   m_TagString: Untagged
@@ -44,18 +43,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db31c0f2d0065224498137e84812f80e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2185979605820064417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3312611528412057410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6ceaf5c6548cf74e86cc2286cd711a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: bc247ed46257fa94593b04610d5dac91, type: 2}

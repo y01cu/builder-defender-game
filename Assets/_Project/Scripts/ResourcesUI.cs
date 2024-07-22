@@ -27,7 +27,6 @@ public class ResourcesUI : MonoBehaviour
             resourceTransform.gameObject.SetActive(true);
             resourceTransform.GetComponent<RectTransform>().anchoredPosition = new Vector2(offsetAmount * index, 0);
             resourceTransform.Find("Image").GetComponent<Image>().sprite = resourceType.sprite;
-
             resourceTypeTransformDictionary[resourceType] = resourceTransform;
             index++;
         }

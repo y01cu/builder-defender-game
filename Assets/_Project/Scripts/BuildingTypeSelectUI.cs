@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,15 +21,10 @@ public class BuildingTypeSelectUI : MonoBehaviour
         BuildingTypeListSO buildingTypeList = Resources.Load<BuildingTypeListSO>(nameof(BuildingTypeListSO));
 
         float offsetAmount = -130f;
-
         int index = 0;
+
         cursorButton = Instantiate(buttonTemplate, transform);
         cursorButton.gameObject.SetActive(true);
-        // RectTransform arrowButtonRectTransform = cursorButton.GetComponent<RectTransform>();
-        // Vector3 anchoredPositionArrow = arrowButtonRectTransform.anchoredPosition;
-        // anchoredPositionArrow = new Vector2(anchoredPositionArrow.x + offsetAmount, anchoredPositionArrow.y);
-        // arrowButtonRectTransform.anchoredPosition = anchoredPositionArrow;
-
         cursorButton.Find("Image").GetComponent<Image>().sprite = cursorSprite;
         cursorButton.Find("Image").GetComponent<RectTransform>().localScale = new Vector3(0.5f, 0.5f, 0.5f);
         cursorButton.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(null); });
@@ -46,14 +42,19 @@ public class BuildingTypeSelectUI : MonoBehaviour
 
             buttonTransform.Find("Image").GetComponent<Image>().sprite = buildingType.sprite;
             buttonTransform.GetComponent<Button>().onClick.AddListener(() => { BuildingManager.Instance.SetActiveBuildingType(buildingType); });
-
             buttonTransformDictionary[buildingType] = buttonTransform;
 
             index++;
         }
     }
 
-    private void Update()
+    private void Start()
+    {
+        BuildingManager.Instance.OnActiveBuildingTypeChanged += BuildingManager_OnActiveBuildingTypeChanged;
+        UpdateActiveBuildingTypeButton();
+    }
+
+    private void BuildingManager_OnActiveBuildingTypeChanged(object sender, BuildingManager.OnActiveBuildingTypeChangedEventArgs e)
     {
         UpdateActiveBuildingTypeButton();
     }

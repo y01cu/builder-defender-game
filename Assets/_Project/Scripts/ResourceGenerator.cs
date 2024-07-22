@@ -1,15 +1,13 @@
-using System;
 using UnityEngine;
 
 public class ResourceGenerator : MonoBehaviour
 {
-    private BuildingTypeSO buildingType;
+    [SerializeField] private BuildingTypeSO buildingType;
     private float timer;
     private float timerMax;
 
     private void Awake()
     {
-        buildingType = GetComponent<BuildingTypeHolder>().buildingType;
         timerMax = buildingType.resourceGeneratorData.generationInterval;
     }
 
@@ -19,7 +17,7 @@ public class ResourceGenerator : MonoBehaviour
         if (timer <= 0f)
         {
             timer += timerMax;
-            ResourceManager.Instance.AddResource(buildingType.resourceGeneratorData.resourceType, 1);
+            ResourceManager.Instance.AddResourceWithAmount(buildingType.resourceGeneratorData.resourceType, 1);
         }
     }
 }
